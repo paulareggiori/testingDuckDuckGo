@@ -7,7 +7,7 @@ from pages.result import DuckDuckGoResultPage
 from pages.search import DuckDuckGoSearchPage
 
 
-@pytest.mark.parametrize("phrase", ["pas", "con"])
+@pytest.mark.parametrize("phrase", ["pas", "tant"])
 def test_search_by_suggestion(browser, phrase):
     search_page = DuckDuckGoSearchPage(browser)
     result_page = DuckDuckGoResultPage(browser)
