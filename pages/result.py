@@ -12,6 +12,13 @@ class DuckDuckGoResultPage:
     SEARCH_INPUT = (By.ID, 'search_form_input')
     SEARCH_BUTTON = (By.ID, "search_button")
     MORE_RESULTS = (By.ID, "more-results")
+    SETTINGS = (By.CLASS_NAME, "dropdown--settings")
+    ALL_SETTINGS = (By.CLASS_NAME, "settings-dropdown--button")
+    SCROLL = (By.XPATH, "//label[@for='setting_kav']")
+    CURRENT_REGION = (By.XPATH, "//a[@class ='dropdown__button dropdown__button js-dropdown-button ']")
+    IMAGES = (By.CLASS_NAME, "js-zci-link--images")
+    VIDEOS = (By.XPATH, "//a[@data-zci-link='videos']")
+    NEWS = (By.CLASS_NAME, "js-zci-link--news")
 
     def __init__(self, browser):
         self.browser = browser
@@ -47,3 +54,37 @@ class DuckDuckGoResultPage:
     def more_results(self):
         more_results = self.browser.find_element(*self.MORE_RESULTS)
         more_results.click()
+
+    def more_results_is_displayed(self):
+        return self.browser.find_element(*self.MORE_RESULTS).is_displayed()
+
+    def settings_button(self):
+        settings_button = self.browser.find_element(*self.SETTINGS)
+        settings_button.click()
+
+    def all_settings_button(self):
+        all_settings_button = self.browser.find_element(*self.ALL_SETTINGS)
+        all_settings_button.click()
+
+    def infinite_scroll(self):
+        infinite_scroll = self.browser.find_element(*self.SCROLL)
+        infinite_scroll.click()
+
+    def scroll_down(self):
+        self.browser.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+
+    def current_region(self):
+        current_region = self.browser.find_element(*self.CURRENT_REGION).get_attribute("text")
+        return current_region
+
+    def images(self):
+        images = self.browser.find_element(*self.IMAGES)
+        images.click()
+
+    def videos(self):
+        videos = self.browser.find_element(*self.VIDEOS)
+        videos.click()
+
+    def news(self):
+        news = self.browser.find_element(*self.NEWS)
+        news.click()
