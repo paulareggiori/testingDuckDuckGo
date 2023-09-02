@@ -29,7 +29,7 @@ The extra `page objects` are:
 * `pages/settings.py`
 * `pages/videoresults.py`
 
-There also a lot of added methods to `pages/results.py` and `pages/search.py` to make the extra tests possible.
+There are also a lot of added methods to `pages/results.py` and `pages/search.py` to make the extra tests possible.
 
 ## Credits to the Instructor
 
