@@ -24,6 +24,7 @@ def test_duckduckgo_video_search(browser, phrase):
 
     # And the search result query is "phrase"
     assert phrase in result_page.search_input_value()
+    time.sleep(1)
 
     # Click on videos
     result_page.videos()

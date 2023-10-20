@@ -1,13 +1,13 @@
 """
 These tests cover DuckDuckGo searching using a suggestion.
 """
-
+import time
 import pytest as pytest
 from pages.result import DuckDuckGoResultPage
 from pages.search import DuckDuckGoSearchPage
 
 
-@pytest.mark.parametrize("phrase", ["pas", "tant"])
+@pytest.mark.parametrize("phrase", ["par", "cup"])
 def test_search_by_suggestion(browser, phrase):
     search_page = DuckDuckGoSearchPage(browser)
     result_page = DuckDuckGoResultPage(browser)
@@ -26,6 +26,7 @@ def test_search_by_suggestion(browser, phrase):
 
     # Assert the "phrase" is in suggestion text
     assert phrase in suggestion_text
+    time.sleep(2)
 
     # And the search result links pertain to suggestion text
     titles = result_page.result_link_titles()
